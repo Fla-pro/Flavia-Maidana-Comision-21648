@@ -6,6 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hola Mundo</h1>
+    <a href="/post/create">Create new post</a>
+    <h1>My Posts</h1>
+    
+    <ul>
+        <% AllPosts.forEach((post) => { %>
+            <li>
+                <p>
+                    <b><%= post.title %></b>
+                    <i><%= post.author %></i>
+                    <i><%= post.content %></i>
+                    <i><%= post.url %></i>
+                    <button>update</button>
+                </p>
+            </li>
+         <% }); %>
+    </ul>
 </body>
 </html>

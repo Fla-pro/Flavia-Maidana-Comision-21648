@@ -1,7 +1,24 @@
+const { PostModel} =require('../models/post')
+
 const getAllPosts = async (req, res) =>{
-    res.render("index")
+    const AllPosts = await PostModel.findAll();
+    res.render("index", { posts })
 };
 
-const createNewPost = async (req, res) =>{};
+const formCreateNewPost = async (req, res) =>{
+    res.render('new-post');
+};
 
-module.exports = { getAllPosts, createNewPost };
+const formUpdatePost = async (req, res) => {
+    res.render('update-post');
+}
+
+const createPost = async(req, res) =>{
+    const {author, content, title, url} =req.body;
+
+   await PostModel.create({author, content, title, url});
+
+   res.redirect('/posts');
+};
+
+module.exports = { getAllPosts,formCreateNewPost, createPost, formUpdatePost };

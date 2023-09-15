@@ -7,8 +7,10 @@ const app = express();
 
 // middlewares
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(morgan("dev"));
+
 
 app.set('views', __dirname + './src/views');
 

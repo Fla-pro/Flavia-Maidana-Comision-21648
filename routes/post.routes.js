@@ -7,6 +7,8 @@ const {
 const router = Router();
 
 router.get('/', getAllPosts);
-router.post('/', createNewPost);
+router.get('/create', createNewPost);
+router.post('/', createPost );
+router.get('/update:id');
 
 module.exports= router;
